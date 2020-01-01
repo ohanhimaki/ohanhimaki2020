@@ -47,5 +47,13 @@ module.exports = {
         tailwind: true,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/my-posts`,
+        name: `posts`,
+      },
+    },
+    `gatsby-transformer-remark`,
   ],
 }
