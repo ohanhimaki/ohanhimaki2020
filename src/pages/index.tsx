@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 // import "./styles.scss"
 
 import "../../tailwindcss/tailwind.src.css"
+import Banner from "../components/banner"
 
 interface Props {
   data: {
@@ -22,15 +23,18 @@ interface Props {
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1 className="text-gray-300">Hi people</h1>
-    <h1 className="text-md font-bold">Hi people</h1>
-    <p className="text-lg">Welcome to your new Gatsby site.</p>
-    <p className="text-sm">Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+    <Banner></Banner>
+    <div className="max-w-2xl m-auto">
+      <h1 className="">Etusivu</h1>
+      <p className="">
+        Olen IT-Tradenomi Olli ja tykkään frisbeegolfata, säbäillä ja värkkäillä
+        tietokoneella.
+      </p>
+      <p>LinkedIN ja GitHub linkit alalaidassa.</p>
+      {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+      <Image name="gatsby-astronaut.png" />
+    </div> */}
     </div>
-    <Link to="/posts/">Go to Posts</Link>
   </Layout>
 )
 

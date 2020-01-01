@@ -35,7 +35,7 @@ const PostPage = ({ data }: Data) => {
 
   return (
     <Layout>
-      <SEO title="Placeholder for title" />
+      <SEO title={frontmatter.title} />
       <div>
         <h4>{frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{ __html: html }} />

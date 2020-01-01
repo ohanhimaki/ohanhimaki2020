@@ -6,30 +6,15 @@ interface Props {
   siteTitle?: string
 }
 const Header = ({ siteTitle }: Props) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
+  <header className="bg-gray-900 mb-6 ">
+    <div className="flex ml-0 pb-6 m-auto p-3 pb-0 justify-between">
+      <h1 className=" text-gray-200 text-base">
+        <Link to="/">{siteTitle}</Link>
       </h1>
+      <span className="w-auto"></span>
+      <Link className="text-gray-200 text-base" to="/posts/">
+        Posts
+      </Link>
     </div>
   </header>
 )
