@@ -7,11 +7,10 @@ interface Props {
 }
 const Header = ({ siteTitle }: Props) => (
   <header className="bg-gray-900 mb-6 ">
-    <div className="flex ml-0 pb-6 m-auto p-3 pb-0 justify-between">
-      <h1 className=" text-gray-200 text-base">
-        <Link to="/">{siteTitle}</Link>
-      </h1>
-      <span className="w-auto"></span>
+    <div className="flex ml-0 pb-5 m-auto p-6 justify-between">
+      <Link className="text-gray-200 text-base" to="/">
+        {siteTitle}
+      </Link>
       <Link className="text-gray-200 text-base" to="/posts/">
         Posts
       </Link>
