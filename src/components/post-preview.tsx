@@ -26,8 +26,11 @@ export interface Frontmatter {
 
 const PostPreview = ({ post }: Props) => {
   return (
-    <Link to={post.node.frontmatter.path}>
-      <div>
+    <Link
+      className="m-6 w-full md:w-1/3 bg-gray-800 p-5 flex-grow"
+      to={post.node.frontmatter.path}
+    >
+      <div className="">
         <h2>{post.node.frontmatter.title} </h2>
         <h4>{post.node.frontmatter.date}</h4>
 
