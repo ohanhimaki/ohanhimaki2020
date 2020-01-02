@@ -24,7 +24,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Banner></Banner>
-    <div className="max-w-2xl m-auto">
+    <div className="max-w-xl m-auto">
       <h1 className="">Etusivu</h1>
       <p className="">
         Olen IT-Tradenomi Olli ja tykkään frisbeegolfata, säbäillä ja värkkäillä

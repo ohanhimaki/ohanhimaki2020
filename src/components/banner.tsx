@@ -21,7 +21,7 @@ const Banner = () => {
     }
   `)
   return (
-    <div className="-mt-6 w-screen flex banner mb-40">
+    <div className="-mt-6 w-screen flex banner mb-8">
       <div
         className="circleimg align-middle
         flex-col max-w-lg m-auto align-middle z-50 flex "
