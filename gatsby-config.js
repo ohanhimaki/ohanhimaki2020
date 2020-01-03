@@ -43,11 +43,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: false,
-        develop: false,
-        whitelist: [
-          ".circleimg > .w-full > .gatsby-image-wrapper",
-          ".bannerbigimage > .gatsby-image-wrapper",
-        ],
+        develop: true,
         tailwind: true,
       },
     },

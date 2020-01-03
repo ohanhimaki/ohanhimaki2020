@@ -34,7 +34,7 @@ p {
   top: 60px;
   z-index: 40;
 }
-
+/* purgecss ignore */
 .bannerbigimage > .gatsby-image-wrapper {
   height: 400px;
   padding: 0.7rem 0 0.7rem 0;
@@ -55,6 +55,7 @@ p {
   top: 50%;
 }
 
+/* purgecss ignore */
 .circleimg > .w-full > .gatsby-image-wrapper {
   clip-path: circle(89px at center);
 }
