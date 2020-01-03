@@ -44,6 +44,10 @@ module.exports = {
       options: {
         printRejected: false,
         develop: false,
+        whitelist: [
+          ".circleimg > .w-full > .gatsby-image-wrapper",
+          ".bannerbigimage > .gatsby-image-wrapper",
+        ],
         tailwind: true,
       },
     },
