@@ -37,9 +37,6 @@ p {
 
 .bannerbigimage > .gatsby-image-wrapper {
   height: 400px;
-}
-
-.bannerbigimage > * img {
   padding: 0.7rem 0 0.7rem 0;
 }
 
@@ -58,6 +55,6 @@ p {
   top: 50%;
 }
 
-.circleimg > * img {
+.circleimg > .w-full > .gatsby-image-wrapper {
   clip-path: circle(89px at center);
 }
