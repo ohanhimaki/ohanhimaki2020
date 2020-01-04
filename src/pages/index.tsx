@@ -8,6 +8,7 @@ import SEO from "../components/seo"
 
 import "../../tailwindcss/tailwind.src.css"
 import Banner from "../components/banner"
+import MtsBanner from "../components/mts-banner"
 
 interface Props {
   data: {
@@ -35,6 +36,7 @@ const IndexPage = () => (
       <Image name="gatsby-astronaut.png" />
     </div> */}
     </div>
+    <MtsBanner></MtsBanner>
   </Layout>
 )
 
