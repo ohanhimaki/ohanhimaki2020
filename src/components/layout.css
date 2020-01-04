@@ -59,3 +59,18 @@ p {
 .circleimg > .w-full > .gatsby-image-wrapper {
   clip-path: circle(89px at center);
 }
+
+footer {
+  @apply absolute;
+  @apply bottom-0;
+  @apply w-full;
+}
+
+.page-container {
+  @apply relative;
+  @apply min-h-screen;
+}
+
+.content {
+  @apply pb-10;
+}

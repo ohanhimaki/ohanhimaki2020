@@ -31,9 +31,11 @@ const Layout = ({ location, title, children }: Props) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div className="m-auto ">
-        <main>{children}</main>
+      <div className="m-auto page-container">
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div className="content">
+          <main>{children}</main>
+        </div>
         <footer>
           <p>
             © {new Date().getFullYear()}, Built with
