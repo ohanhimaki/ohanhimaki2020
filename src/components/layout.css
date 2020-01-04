@@ -2,6 +2,7 @@ html {
   @apply bg-gray-900;
   @apply font-sans;
   min-height: 100vh;
+  @apply overflow-x-hidden;
 }
 
 h1 {
@@ -15,10 +16,10 @@ h2 {
 }
 h3 {
   @apply text-xl;
-  @apply text-gray-400;
+  @apply text-gray-300;
 }
 h4 {
-  @apply text-gray-400;
+  @apply text-gray-300;
 }
 p {
   @apply text-base;
@@ -72,5 +73,5 @@ footer {
 }
 
 .content {
-  @apply pb-10;
+  @apply pb-16;
 }

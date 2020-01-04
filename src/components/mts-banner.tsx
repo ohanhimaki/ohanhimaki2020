@@ -14,17 +14,26 @@ const MtsBanner = () => {
     fetch("https://mita-tanaan-syotaisiin.herokuapp.com/api/lunchofday")
       .then(result => result.json())
       .then(data => {
-        console.log(data)
         setRavintola(data[0].nimi)
         setLista(data[0].string_agg)
       })
   }, [])
+
+  if (ravintola === "" || lista === "") {
+    return <></>
+  }
+
   return (
-    <>
-      <h3>Päivän lounas</h3>
-      <h3>{ravintola}</h3>
+    <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg">
+      <h3>Päivän lounaspaikka</h3>
+      <h2>{ravintola}</h2>
       <p>{lista}</p>
-    </>
+      <a href="https://mita-tanaan-syotaisiin.herokuapp.com/" target="_blank">
+        <span className="text-gray-400 italic">
+          Linkki toteuttamaani lounassovellukseen
+        </span>
+      </a>
+    </div>
   )
 }
 

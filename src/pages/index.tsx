@@ -6,7 +6,6 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 // import "./styles.scss"
 
-import "../../tailwindcss/tailwind.src.css"
 import Banner from "../components/banner"
 import MtsBanner from "../components/mts-banner"
 
@@ -25,7 +24,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Banner></Banner>
-    <div className="max-w-xl m-auto">
+    <div className="max-w-xl m-auto p-5">
       <h1 className="">Etusivu</h1>
       <p className="">
         Olen IT-Tradenomi Olli ja tykkään frisbeegolfata, säbäillä ja värkkäillä
