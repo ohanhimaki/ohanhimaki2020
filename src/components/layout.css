@@ -58,7 +58,8 @@ p {
 
 /* purgecss ignore */
 .circleimg > .w-full > .gatsby-image-wrapper {
-  clip-path: circle(89px at center);
+  scale: 1.2;
+  clip-path: circle(46% at 50% 50%);
 }
 
 footer {
