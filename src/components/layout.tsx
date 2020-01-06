@@ -11,8 +11,9 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import "../../tailwindcss/tailwind.src.css"
 
-import Header from "./header"
 import "./layout.css"
+import Header from "./header"
+import Footer from "./footer"
 
 interface Props {
   location?: Location
@@ -38,13 +39,7 @@ const Layout = ({ location, title, children }: Props) => {
         <div className="content">
           <main>{children}</main>
         </div>
-        <footer>
-          <p>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </p>
-        </footer>
+        <Footer></Footer>
       </div>
     </>
   )

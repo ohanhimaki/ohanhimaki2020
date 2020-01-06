@@ -8,6 +8,7 @@ import SEO from "../components/seo"
 
 import Banner from "../components/banner"
 import MtsBanner from "../components/mts-banner"
+import Commithistory from "../components/commit-history"
 
 interface Props {
   data: {
@@ -24,7 +25,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Banner></Banner>
-    <div className="max-w-xl m-auto p-5">
+    <div className="max-w-xl m-auto p-8">
       <h1 className="">Etusivu</h1>
       <p className="">
         Olen IT-Tradenomi Olli ja tykkään frisbeegolfata, säbäillä ja värkkäillä
@@ -36,6 +37,7 @@ const IndexPage = () => (
     </div> */}
     </div>
     <MtsBanner></MtsBanner>
+    <Commithistory></Commithistory>
   </Layout>
 )
 
