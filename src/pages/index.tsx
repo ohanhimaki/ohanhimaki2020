@@ -9,10 +9,8 @@ import SEO from "../components/seo"
 import Banner from "../components/banner"
 import MtsBanner from "../components/mts-banner"
 import Commithistory from "../components/commit-history"
-
 import UserEvents from "../components/usergithubEvents"
 import Tabs from "../components/tabs"
-
 
 interface Props {
   data: {
@@ -38,7 +36,6 @@ const IndexPage = () => (
       <p>LinkedIN ja GitHub linkit alalaidassa.</p>
     </div>
     <MtsBanner></MtsBanner>
-
     <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg my-4 child-rounded height-smooth">
       <Tabs>
         <div label="Commit History of this repo">
@@ -51,7 +48,6 @@ const IndexPage = () => (
         </div>
       </Tabs>
     </div>
-
   </Layout>
 )
 

@@ -21,9 +21,13 @@ const Commithistory = () => {
   }
 
   return (
+<<<<<<< HEAD
 
     <div className=" child-rounded ">
 
+=======
+    <div className=" child-rounded ">
+>>>>>>> develop
       {allCommits.map((value: Commit, index: any) => {
         return <SingleCommit commit={value} key={index}></SingleCommit>
       })}
