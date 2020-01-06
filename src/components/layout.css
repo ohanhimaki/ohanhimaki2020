@@ -76,3 +76,19 @@ footer {
 .content {
   @apply pb-16;
 }
+
+.child-rounded > *:last-child > div {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.child-rounded > *:first-child > div {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.child-rounded > *:last-child {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.child-rounded > *:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}

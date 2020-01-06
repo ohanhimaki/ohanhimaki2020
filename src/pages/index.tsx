@@ -9,6 +9,7 @@ import SEO from "../components/seo"
 import Banner from "../components/banner"
 import MtsBanner from "../components/mts-banner"
 import Commithistory from "../components/commit-history"
+import UserEvents from "../components/usergithubEvents"
 
 interface Props {
   data: {
@@ -38,6 +39,7 @@ const IndexPage = () => (
     </div>
     <MtsBanner></MtsBanner>
     <Commithistory></Commithistory>
+    <UserEvents></UserEvents>
   </Layout>
 )
 
