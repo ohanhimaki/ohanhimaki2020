@@ -19,7 +19,7 @@ const UserEvents = () => {
     return <></>
   }
   return (
-    <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg my-4 child-rounded">
+    <div className="child-rounded">
       {allEvents.map((value: GitHubEvent, index: any) => {
         return <UserEvent event={value} key={index}></UserEvent>
       })}

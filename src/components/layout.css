@@ -81,14 +81,15 @@ footer {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.child-rounded > *:first-child > div {
-  border-radius: 0.5rem 0.5rem 0 0;
-}
-
 .child-rounded > *:last-child {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.child-rounded > *:first-child {
-  border-radius: 0.5rem 0.5rem 0 0;
+.height-smooth {
+  max-height: 1300px;
+  transition: max-height 10s;
+}
+
+.m-tabs:first-child {
+  margin-right: 0.5rem;
 }

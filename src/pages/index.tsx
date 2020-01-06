@@ -10,6 +10,7 @@ import Banner from "../components/banner"
 import MtsBanner from "../components/mts-banner"
 import Commithistory from "../components/commit-history"
 import UserEvents from "../components/usergithubEvents"
+import Tabs from "../components/tabs"
 
 interface Props {
   data: {
@@ -33,13 +34,20 @@ const IndexPage = () => (
         tietokoneella.
       </p>
       <p>LinkedIN ja GitHub linkit alalaidassa.</p>
-      {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image name="gatsby-astronaut.png" />
-    </div> */}
     </div>
     <MtsBanner></MtsBanner>
-    <Commithistory></Commithistory>
-    <UserEvents></UserEvents>
+    <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg my-4 child-rounded height-smooth">
+      <Tabs>
+        <div label="Commit History of this repo">
+          {" "}
+          <Commithistory></Commithistory>
+        </div>
+        <div label="My github events">
+          {" "}
+          <UserEvents></UserEvents>
+        </div>
+      </Tabs>
+    </div>
   </Layout>
 )
 
