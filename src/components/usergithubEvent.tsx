@@ -30,7 +30,7 @@ const UserEvent = ({ event }: Props) => {
   const datediff = timeAgo(date)
 
   return (
-    <div className="flex bg-gray-900 border-gray-800 border-t-2">
+    <div className="flex bg-gray-900 border-gray-800 border-t-2 p-3">
       <div className="ml-2">
         <h3 className=""> {event.repo.name}</h3>
         <h4>{event.type}</h4>
