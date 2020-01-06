@@ -19,12 +19,17 @@ const MtsBanner = () => {
       })
   }, [])
 
-  if (ravintola === "" || lista === "") {
+  if (
+    ravintola === "" ||
+    lista === "" ||
+    ravintola === null ||
+    lista === null
+  ) {
     return <></>
   }
 
   return (
-    <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg">
+    <div className="bg-gray-800 max-w-xl  m-auto p-8 rounded-lg my-4">
       <h3>Päivän lounaspaikka</h3>
       <h2>{ravintola}</h2>
       <p>{lista}</p>
