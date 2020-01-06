@@ -76,3 +76,20 @@ footer {
 .content {
   @apply pb-16;
 }
+
+.child-rounded > *:last-child > div {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.child-rounded > *:last-child {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.height-smooth {
+  max-height: 1300px;
+  transition: max-height 10s;
+}
+
+.m-tabs:first-child {
+  margin-right: 0.5rem;
+}
