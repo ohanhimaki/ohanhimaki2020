@@ -6,23 +6,28 @@ interface Props {
 }
 
 const SingleCommit = ({ commit }: Props) => {
-  const date = new Date(commit.commit.author.date)
-  const datetoday = new Date()
-  const datedifference = date.getTime() - datetoday.getTime()
-  const daysdifference = datedifference / (1000 * 3600 * 24)
-  let hoursdifference = 0
-  if (daysdifference < 1) {
-    hoursdifference = datedifference / (1000 * 3600)
+  function timeAgo(params: Date) {
+    let timeunit = ""
+    let timeamount = 0
+    const dateNow = new Date()
+    const msdiff = dateNow.getTime() - params.getTime()
+    const datediff = msdiff / (1000 * 3600 * 24)
+    if (datediff > 1) {
+      timeamount = datediff
+      timeunit = "days"
+    } else if (datediff * 24 > 0) {
+      timeamount = datediff * 24
+      timeunit = "hours"
+    } else {
+      timeamount = datediff * 24 * 3600
+      timeunit = "minutes"
+    }
+    const timeamountstr = Math.round(timeamount).toFixed(0)
+    return { timeamount: timeamountstr, timeunit: timeunit }
   }
-  let strdaysdifference = Math.round(daysdifference * -1).toFixed(0)
-  let strhoursdifference = Math.round(hoursdifference * -1).toFixed(0)
-  let commitedago = ""
 
-  if (daysdifference > -1) {
-    commitedago = strhoursdifference + " hours ago"
-  } else {
-    commitedago = strdaysdifference + " days ago"
-  }
+  const date = new Date(commit.commit.author.date)
+  const datediff = timeAgo(date)
 
   return (
     <a href={commit.html_url} target="_blank">
@@ -30,7 +35,9 @@ const SingleCommit = ({ commit }: Props) => {
         <img src={commit.committer.avatar_url} className="w-16 h-16"></img>{" "}
         <div className="ml-2">
           <h3 className=""> {commit.commit.message}</h3>
-          <h4>{commitedago}</h4>
+          <h4>
+            {datediff.timeamount} {} {datediff.timeunit} {} ago
+          </h4>
         </div>
       </div>
     </a>
