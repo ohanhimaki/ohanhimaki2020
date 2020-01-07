@@ -32,7 +32,7 @@ const MtsBanner = () => {
     <div className="bg-gray-800 max-w-xl  m-auto p-8 rounded-lg my-4">
       <h3>Päivän lounaspaikka</h3>
       <h2>{ravintola}</h2>
-      <p>{lista}</p>
+      <p dangerouslySetInnerHTML={{ __html: lista }}></p>
       <a href="https://mita-tanaan-syotaisiin.herokuapp.com/" target="_blank">
         <span className="text-gray-400 italic">
           Linkki toteuttamaani lounassovellukseen
