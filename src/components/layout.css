@@ -87,7 +87,7 @@ footer {
 
 .height-smooth {
   max-height: 1300px;
-  transition: max-height 10s;
+  transition: transform 10s;
 }
 
 .m-tabs:first-child {
