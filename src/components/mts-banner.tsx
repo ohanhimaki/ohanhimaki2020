@@ -10,6 +10,7 @@ interface lunch {
 const MtsBanner = () => {
   const [ravintola, setRavintola] = useState("")
   const [lista, setLista] = useState("")
+  let readycss = "bg-gray-800 max-w-xl  m-auto p-8 rounded-lg my-4 "
   useEffect(() => {
     fetch("https://mita-tanaan-syotaisiin.herokuapp.com/api/lunchofday")
       .then(result => result.json())
@@ -25,11 +26,13 @@ const MtsBanner = () => {
     ravintola === null ||
     lista === null
   ) {
-    return <></>
+    readycss += "mts-hidden"
+  } else {
+    readycss += "mts-show"
   }
 
   return (
-    <div className="bg-gray-800 max-w-xl  m-auto p-8 rounded-lg my-4">
+    <div className={readycss}>
       <h3>Päivän lounaspaikka</h3>
       <h2>{ravintola}</h2>
       <p dangerouslySetInnerHTML={{ __html: lista }}></p>
