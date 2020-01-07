@@ -86,10 +86,27 @@ footer {
 }
 
 .height-smooth {
-  max-height: 1300px;
   transition: transform 10s;
 }
 
 .m-tabs:first-child {
   margin-right: 0.5rem;
+}
+.tab-content {
+  position: relative;
+}
+
+.active-tab-container {
+  max-height: 1500px;
+  display: block;
+  transition: display 0s ease-in 1s;
+  transition: max-height 1s;
+}
+
+.piilossa {
+  max-height: 1px;
+  transition: max-height 1s;
+}
+.piilossa > * {
+  display: none;
 }
