@@ -4,6 +4,7 @@ date: "2018-11-05"
 title: "DGG uudelleentoteutus Angularilla"
 tags: ["Angular2", "canvas"]
 excert: "Toteutetaan DGG Angularilla"
+repo: "ohanhimaki/dgg"
 ---
 
 ## DGG:n Uudelleen toteutus Angularilla

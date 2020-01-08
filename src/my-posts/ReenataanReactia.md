@@ -4,6 +4,7 @@ date: "2019-01-05"
 title: "Reenataan reactia"
 tags: ["React"]
 excert: "Reenataan reactia ja toteutetaan sivusto joka käyttää..."
+repo: "ohanhimaki/Google-sheet-as-content-database"
 ---
 
 ## Reenataan Reactia ja testataan Google sheetsiä sivuston tietokantana.

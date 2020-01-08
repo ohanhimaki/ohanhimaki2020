@@ -4,6 +4,7 @@ date: "2019-04-07"
 title: "3DJS Treeni, Suomen eduskunta"
 tags: ["3DJS"]
 excert: "Testataan 3DJS"
+repo: "ohanhimaki/SuomenEduskunta3DJS"
 ---
 
 ## 3DJS Treeni, Suomen eduskunta

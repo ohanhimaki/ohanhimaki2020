@@ -31,6 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
                 path
                 tags
                 title
+                repo
               }
               html
             }

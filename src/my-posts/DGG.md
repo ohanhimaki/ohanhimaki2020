@@ -4,6 +4,7 @@ date: "2018-07-12"
 title: "DGG, työkalu frisbeegolf tulosgrafiikoiden tekemiseen"
 tags: ["canvas", "JavaScript", "MDL"]
 excert: "Opinnäytetyössäni toteuttama työkalu frisbeegolf-videoiden tulosgrafiikoiden luomiseen"
+repo: "ohanhimaki/opinnaytetyo"
 ---
 
 ## DGG, työkalu frisbeegolf tulosgrafiikoiden tekemiseen

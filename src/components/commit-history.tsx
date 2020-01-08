@@ -16,8 +16,10 @@ const Commithistory = ({ repo, className }: Props) => {
     fetch("https://api.github.com/repos/" + repo + "/commits")
       .then(result => result.json())
       .then(data => {
-        data = data.slice(0, 5)
-        setAllCommits(data)
+        if (data.length > 0) {
+          data = data.slice(0, 5)
+          setAllCommits(data)
+        }
       })
   }, [])
 
