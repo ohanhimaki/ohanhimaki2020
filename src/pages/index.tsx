@@ -39,7 +39,10 @@ const IndexPage = () => (
       <Tabs>
         <div label="Commit History of this repo">
           {" "}
-          <Commithistory></Commithistory>
+          <Commithistory
+            className="child-rounded"
+            repo="ohanhimaki/ohanhimaki2020"
+          ></Commithistory>
         </div>
         <div label="My github events">
           {" "}
