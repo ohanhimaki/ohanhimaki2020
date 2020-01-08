@@ -1,5 +1,6 @@
 
 function timeAgo(params: Date) {
+
     let timeunit = ""
     let timeamount = 0
     const dateNow = new Date()
@@ -8,7 +9,8 @@ function timeAgo(params: Date) {
     if (datediff > 1) {
         timeamount = datediff
         timeunit = "days"
-    } else if (datediff * 24 > 0) {
+    } else if (datediff * 24 > 1) {
+
         timeamount = datediff * 24
         timeunit = "hours"
     } else {
