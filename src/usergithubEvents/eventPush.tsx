@@ -26,7 +26,7 @@ class EventPush extends Component {
     }
 
     return (
-      <div className="flex bg-gray-900 border-gray-800 border-t-2 p-1 mx-3">
+      <div className="flex bg-gray-900 border-gray-800 border-t-2 p-1 mx-3 hover:bg-black">
         <a href={data.html_url} target="__blank" className="flex-row w-full">
           <h6>
             {data.commit.message.substring(0, messageLength)}

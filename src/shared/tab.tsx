@@ -20,7 +20,7 @@ class Tab extends Component {
     } = this
 
     let className =
-      "bg-gray-900 text-white p-3 rounded-t cursor-pointer flex-1 m-tabs -mb-1 justify-center flex"
+      "bg-gray-900 text-white p-3 rounded-t cursor-pointer flex-1 m-tabs -mb-1 justify-center flex hover:bg-black"
 
     if (activeTab === label) {
       className += " font-bold "

@@ -35,18 +35,18 @@ const IndexPage = () => (
       <p>LinkedIN ja GitHub linkit alalaidassa.</p>
     </div>
     <MtsBanner></MtsBanner>
-    <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg my-4 child-rounded-bot height-smooth">
+    <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg my-4 child-rounded-bot ">
       <Tabs>
+        <div label="My github events">
+          {" "}
+          <UserEvents></UserEvents>
+        </div>
         <div label="Commit History of this repo">
           {" "}
           <Commithistory
             className="child-rounded-bot"
             repo="ohanhimaki/ohanhimaki2020"
           ></Commithistory>
-        </div>
-        <div label="My github events">
-          {" "}
-          <UserEvents></UserEvents>
         </div>
       </Tabs>
     </div>

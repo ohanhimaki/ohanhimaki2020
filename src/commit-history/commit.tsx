@@ -11,8 +11,8 @@ const SingleCommit = ({ commit }: Props) => {
   const datediff = timeAgo(date)
 
   return (
-    <a href={commit.html_url} target="_blank">
-      <div className="flex bg-gray-900 border-gray-800 border-t-2">
+    <a href={commit.html_url} target="_blank" className="hover:bg-black">
+      <div className="flex bg-gray-900 border-gray-800 border-t-2 hover:bg-black">
         <img src={commit.committer.avatar_url} className="w-16 h-16"></img>{" "}
         <div className="ml-2">
           <h3 className=""> {commit.commit.message}</h3>

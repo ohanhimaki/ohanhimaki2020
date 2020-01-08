@@ -17,7 +17,7 @@ const Commithistory = ({ repo, className }: Props) => {
       .then(result => result.json())
       .then(data => {
         if (data.length > 0) {
-          data = data.slice(0, 5)
+          data = data.slice(0, 10)
           setAllCommits(data)
         }
       })

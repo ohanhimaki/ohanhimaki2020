@@ -97,10 +97,6 @@ footer {
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.height-smooth {
-  transition: transform 10s;
-}
-
 .m-tabs:first-child {
   margin-right: 0.5rem;
 }
@@ -110,12 +106,10 @@ footer {
 
 .active-tab-container {
   max-height: 1500px;
-  transition: max-height 1s ease-in-out;
 }
 
 .piilossa {
   max-height: 0px;
-  transition: max-height 1s;
 }
 .piilossa > * {
   display: none;

@@ -10,7 +10,7 @@ const UserEvents = () => {
     fetch("https://api.github.com/users/ohanhimaki/events")
       .then(result => result.json())
       .then(data => {
-        data = data.slice(0, 5)
+        data = data.slice(0, 10)
         setAllEvents(data)
       })
   }, [])

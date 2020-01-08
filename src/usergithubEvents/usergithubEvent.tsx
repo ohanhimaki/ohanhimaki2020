@@ -29,13 +29,13 @@ class UserEvent extends Component {
     }
   }
 
-  // toggleCommits(this, stateofCommits) {
-  //   if (stateofCommits === "hidden") {
-  //     this.setState({ stateofCommits: "" })
-  //   } else {
-  //     this.setState({ stateofCommits: "hidden" })
-  //   }
-  // }
+  getBranch(ref: string) {
+    if (ref != null) {
+      const indexOfLastSlash = ref.lastIndexOf("/")
+      const branchName = ref.substring(indexOfLastSlash + 1, ref.length)
+      return "- " + branchName
+    }
+  }
 
   render() {
     const {
@@ -47,11 +47,14 @@ class UserEvent extends Component {
     return (
       <div className="flex flex-col bg-gray-900 border-gray-800 border-t-2 ">
         <div
-          className="ml-2  w-full flex flex-col p-3 cursor-pointer"
+          className="ml-2  w-full flex flex-col p-3 cursor-pointer hover:bg-black"
           onClick={toggleHidden}
         >
-          <h3 className=""> {event.repo.name}</h3>
-          <h4>{event.type}</h4>
+          <h3 className=""> {event.repo.name} </h3>
+          <h4>
+            {event.type}
+            {this.getBranch(event.payload.ref)}
+          </h4>
           <h4>
             {datediff.timeamount} {} {datediff.timeunit} {} ago
           </h4>
