@@ -58,39 +58,4 @@ class Tabs extends Component {
   }
 }
 
-// const [activeTab, setActiveTab] = useState("")
-
-// function onClickTabItem(tab: string) {
-//   console.log(tab)
-
-//   useEffect(() => setActiveTab(tab), [])
-// }
-
-// const Tabs = ({ children }: Props) => {
-//   return (
-//     <div>
-//       <ol>
-//         <button onClick={() => onClickTabItem("testi")}>asdf</button>
-//         {children.map((child: any) => {
-//           const { label } = child.props
-//           return (
-//             <Tab
-//               activeTab={activeTab}
-//               key={label}
-//               label={label}
-//               onClick={onClickTabItem}
-//             />
-//           )
-//         })}
-//       </ol>
-//       <div>
-//         {children.map((child: any) => {
-//           if (child.props.label !== activeTab) return undefined
-//           return child.props.children
-//         })}
-//       </div>
-//     </div>
-//   )
-// }
-
 export default Tabs

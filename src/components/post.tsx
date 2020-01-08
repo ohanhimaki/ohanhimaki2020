@@ -52,7 +52,6 @@ const PostPage = ({ data }: Data) => {
       )
     }
   }
-  console.log(frontmatter)
 
   return (
     <Layout>

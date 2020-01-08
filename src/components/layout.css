@@ -21,6 +21,10 @@ h3 {
 h4 {
   @apply text-gray-300;
 }
+h6 {
+  @apply text-gray-400;
+  @apply text-sm;
+}
 p {
   @apply text-base;
   @apply text-gray-200;
