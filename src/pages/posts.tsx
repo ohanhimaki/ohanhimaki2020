@@ -1,10 +1,10 @@
 import React from "react"
 
 import "../../tailwindcss/tailwind.src.css"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../shared/layout"
+import SEO from "../shared/seo"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import PostPreview, { Post } from "../components/post-preview"
+import PostPreview, { Post } from "../my-posts/post-preview"
 
 interface Props {
   data?: any

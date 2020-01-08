@@ -45,11 +45,17 @@ class Tabs extends Component {
           })}
         </ol>
         <div className="tab-content">
-          {children.map(child => {
+          {children.map((child, index) => {
             if (child.props.label !== activeTab)
-              return <div className="piilossa">{child.props.children}</div>
+              return (
+                <div className="piilossa" key={index}>
+                  {child.props.children}
+                </div>
+              )
             return (
-              <div className="active-tab-container">{child.props.children}</div>
+              <div className="active-tab-container" key={index}>
+                {child.props.children}
+              </div>
             )
           })}
         </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { GitHubEvent } from "../models/githubEvent"
+import { GitHubEvent } from "../shared/models/githubEvent"
 import timeAgo from "../helpers/date"
 import EventPush from "./eventPush"
 
@@ -23,9 +23,9 @@ class UserEvent extends Component {
     })
   }
 
-  renderCommit(commit) {
+  renderCommit(commit, index) {
     if (commit != null) {
-      return <EventPush commit={commit}></EventPush>
+      return <EventPush commit={commit} key={index}></EventPush>
     }
   }
 
@@ -58,8 +58,8 @@ class UserEvent extends Component {
         </div>
         {!isHidden && (
           <div className="flex flex-col">
-            {event.payload.commits?.map(value => {
-              return this.renderCommit(value)
+            {event.payload.commits?.map((value, index) => {
+              return this.renderCommit(value, index)
             })}
           </div>
         )}

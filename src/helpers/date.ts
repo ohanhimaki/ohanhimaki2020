@@ -14,7 +14,7 @@ function timeAgo(params: Date) {
         timeamount = datediff * 24
         timeunit = "hours"
     } else {
-        timeamount = datediff * 24 * 3600
+        timeamount = datediff * 24 * 60
         timeunit = "minutes"
     }
     const timeamountstr = Math.round(timeamount).toFixed(0)

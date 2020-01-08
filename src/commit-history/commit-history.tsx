@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Commit } from "../models/commit"
+import { Commit } from "../shared/models/commit"
 import SingleCommit from "./commit"
 
 //api.github.com/repos/ohanhimaki/ohanhimaki2020/commits

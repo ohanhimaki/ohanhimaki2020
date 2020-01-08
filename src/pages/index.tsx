@@ -1,15 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../shared/layout"
+import SEO from "../shared/seo"
 // import "./styles.scss"
 
-import Banner from "../components/banner"
-import MtsBanner from "../components/mts-banner"
-import Commithistory from "../components/commit-history"
-import UserEvents from "../components/usergithubEvents"
-import Tabs from "../components/tabs"
+import Banner from "../shared/banner"
+import MtsBanner from "../shared/mts-banner"
+import Commithistory from "../commit-history/commit-history"
+import UserEvents from "../usergithubEvents/usergithubEvents"
+import Tabs from "../shared/tabs"
 
 interface Props {
   data: {

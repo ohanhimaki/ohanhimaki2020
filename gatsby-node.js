@@ -16,7 +16,7 @@ exports.onCreatePage = ({ page, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const template = path.resolve("src/components/post.tsx")
+  const template = path.resolve("src/my-posts/post.tsx")
   return new Promise((resolve, reject) => {
     graphql(`
       query MyQuery3 {

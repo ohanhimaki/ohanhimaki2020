@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { GitHubEvent } from "../models/githubEvent"
+import { GitHubEvent } from "../shared/models/githubEvent"
 import UserEvent from "./usergithubEvent"
 
 //api.github.com/repos/ohanhimaki/ohanhimaki2020/commits

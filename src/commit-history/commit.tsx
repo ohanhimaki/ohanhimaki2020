@@ -1,5 +1,5 @@
 import React from "react"
-import { Commit } from "../models/commit"
+import { Commit } from "../shared/models/commit"
 import timeAgo from "../helpers/date"
 
 interface Props {
