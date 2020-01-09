@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import "../../tailwindcss/tailwind.src.css"
 
 import "./layout.css"
+import "./hidden.css"
 import Header from "./header"
 import Footer from "./footer"
 

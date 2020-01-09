@@ -43,6 +43,13 @@ class UserEvent extends Component {
       state: { datediff, isHidden },
       props: { event },
     } = this
+    let commitscontainer = "flex flex-col section"
+
+    if (isHidden) {
+      commitscontainer += " section-collapsed "
+    } else {
+      commitscontainer += ""
+    }
 
     return (
       <div className="flex flex-col bg-gray-900 border-gray-800 border-t-2 ">
@@ -59,13 +66,11 @@ class UserEvent extends Component {
             {datediff.timeamount} {} {datediff.timeunit} {} ago
           </h4>
         </div>
-        {!isHidden && (
-          <div className="flex flex-col">
-            {event.payload.commits?.map((value, index) => {
-              return this.renderCommit(value, index)
-            })}
-          </div>
-        )}
+        <div className={commitscontainer}>
+          {event.payload.commits?.map((value, index) => {
+            return this.renderCommit(value, index)
+          })}
+        </div>
       </div>
     )
   }

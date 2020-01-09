@@ -1,0 +1,13 @@
+.section {
+  overflow: hidden;
+  transition: max-height 1s ease-in-out 0s;
+  height: auto;
+  max-height: 1600px;
+}
+.section-collapsed {
+  max-height: 0;
+}
+
+/* .section-collapsed > * {
+  display: none;
+} */
