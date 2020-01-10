@@ -3,7 +3,7 @@ path: "3DJS-Treeni"
 date: "2019-04-07"
 title: "3DJS Treeni, Suomen eduskunta"
 tags: ["3DJS"]
-excert: "Testataan 3DJS"
+excert: "3DJS on JavaScript kirjasto, joka auttaa käyttäjää ”herättämään datan henkiin”. Esimerkisk r/DataIsBeautifulissa tällä kirjastolla toteutettuja visualisointeja näkyy päivittäin."
 repo: "ohanhimaki/SuomenEduskunta3DJS"
 ---
 

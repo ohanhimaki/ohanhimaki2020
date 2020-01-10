@@ -14,13 +14,16 @@ class UserEvent extends Component {
       isHidden: true,
       datediff: datediff,
     }
-    this.toggleHidden = this.toggleHidden.bind(this)
+    this.divClickFunction = this.divClickFunction.bind(this)
   }
 
-  toggleHidden() {
+  divClickFunction(something?: any) {
     this.setState({
       isHidden: !this.state.isHidden,
     })
+    if (something) {
+      window.open(something.html_url)
+    }
   }
 
   renderCommit(commit, index) {
@@ -33,13 +36,20 @@ class UserEvent extends Component {
     if (ref != null) {
       const indexOfLastSlash = ref.lastIndexOf("/")
       const branchName = ref.substring(indexOfLastSlash + 1, ref.length)
-      return "- " + branchName
+      return " - " + branchName
+    }
+  }
+  getCommitCount(commits: []) {
+    if (commits != null) {
+      return " - " + commits.length + " Commits"
     }
   }
 
   render() {
     const {
-      toggleHidden,
+      divClickFunction,
+      getBranch,
+      getCommitCount,
       state: { datediff, isHidden },
       props: { event },
     } = this
@@ -55,19 +65,20 @@ class UserEvent extends Component {
       <div className="flex flex-col bg-gray-900 border-gray-800 border-t-2 ">
         <div
           className="ml-2  w-full flex flex-col p-3 cursor-pointer hover:bg-black"
-          onClick={toggleHidden}
+          onClick={() => divClickFunction(event.payload.pull_request)}
         >
           <h3 className=""> {event.repo.name} </h3>
           <h4>
             {event.type}
-            {this.getBranch(event.payload.ref)}
+            {getBranch(event.payload.ref)}
+            {getCommitCount(event.payload.commits)}
           </h4>
           <h4>
             {datediff.timeamount} {} {datediff.timeunit} {} ago
           </h4>
         </div>
         <div className={commitscontainer}>
-          {event.payload.commits?.map((value, index) => {
+          {event.payload.commits?.map((value, index: number) => {
             return this.renderCommit(value, index)
           })}
         </div>

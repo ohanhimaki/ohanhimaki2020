@@ -3,7 +3,7 @@ path: "DGG-Angularilla"
 date: "2018-11-05"
 title: "DGG uudelleentoteutus Angularilla"
 tags: ["Angular2", "canvas"]
-excert: "Toteutetaan DGG Angularilla"
+excert: "Kun sivustoa ensimmäisen kerran tein, huomasin että päätökseni tehdä työ täysin vanilla JavaScriptillä lisäsi koodin määrää"
 repo: "ohanhimaki/dgg"
 ---
 
