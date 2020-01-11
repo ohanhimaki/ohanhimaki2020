@@ -19,7 +19,12 @@ h3 {
   @apply text-gray-300;
 }
 h4 {
+  @apply text-lg;
   @apply text-gray-300;
+}
+h5 {
+  @apply text-gray-400;
+  @apply text-base;
 }
 h6 {
   @apply text-gray-400;
