@@ -9,19 +9,26 @@ interface Props {
 const SingleCommit = ({ commit }: Props) => {
   const date = new Date(commit.commit.author.date)
   const datediff = timeAgo(date)
+  console.log(commit)
 
   return (
-    <a href={commit.html_url} target="_blank" className="hover:bg-black">
-      <div className="flex bg-gray-900 border-gray-800 border-t-2 hover:bg-black">
-        <img src={commit.committer.avatar_url} className="w-16 h-16"></img>{" "}
+    <div className="flex bg-gray-900 border-gray-800 border-t-2 hover:bg-black">
+      <a href={commit.author.html_url} target="_blank" className="w-16 h-16">
+        <img src={commit.author.avatar_url} className="w-16 h-16"></img>{" "}
+      </a>
+      <a
+        href={commit.html_url}
+        target="_blank"
+        className="flex-1 hover:bg-black"
+      >
         <div className="ml-2">
           <h3 className=""> {commit.commit.message}</h3>
           <h4>
             {datediff.timeamount} {} {datediff.timeunit} {} ago
           </h4>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   )
 }
 
