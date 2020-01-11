@@ -11,6 +11,7 @@ interface Props {
 
 const Commithistory = ({ repo, className }: Props) => {
   const [allCommits, setAllCommits] = useState([])
+  const [listLength, setListLength] = useState(5)
   //   const [lista, setLista] = useState("")
   useEffect(() => {
     fetch("https://api.github.com/repos/" + repo + "/commits")
@@ -26,12 +27,27 @@ const Commithistory = ({ repo, className }: Props) => {
   if (allCommits.length === 0 || allCommits === null) {
     return <></>
   }
+  function showMoreOrLess(listLength: number) {
+    if (listLength === 5) {
+      setListLength(10)
+    } else {
+      setListLength(5)
+    }
+  }
 
   return (
     <div className={className}>
-      {allCommits.map((value: Commit, index: any) => {
+      {allCommits.slice(0, listLength).map((value: Commit, index: any) => {
         return <SingleCommit commit={value} key={index}></SingleCommit>
       })}
+      <div
+        className="flex flex-col bg-gray-900 border-gray-800 border-t-2 cursor-pointer "
+        onClick={() => showMoreOrLess(listLength)}
+      >
+        <h3 className="m-auto ">
+          {listLength === 5 ? "Show more" : "Show less"}
+        </h3>
+      </div>
     </div>
   )
 }

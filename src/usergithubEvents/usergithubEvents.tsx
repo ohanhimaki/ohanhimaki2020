@@ -6,6 +6,7 @@ import UserEvent from "./usergithubEvent"
 
 const UserEvents = () => {
   const [allEvents, setAllEvents] = useState([])
+  const [listLength, setListLength] = useState(5)
   useEffect(() => {
     fetch("https://api.github.com/users/ohanhimaki/events")
       .then(result => result.json())
@@ -18,11 +19,28 @@ const UserEvents = () => {
   if (allEvents.length === 0 || allEvents === null) {
     return <></>
   }
+
+  function showMoreOrLess(listLength: number) {
+    if (listLength === 5) {
+      setListLength(10)
+    } else {
+      setListLength(5)
+    }
+  }
+
   return (
-    <div className="child-rounded-bot">
-      {allEvents.map((value: GitHubEvent, index: any) => {
+    <div className="child-rounded-bot section">
+      {allEvents.slice(0, listLength).map((value: GitHubEvent, index: any) => {
         return <UserEvent event={value} key={index}></UserEvent>
       })}
+      <div
+        className="flex flex-col bg-gray-900 border-gray-800 border-t-2 cursor-pointer "
+        onClick={() => showMoreOrLess(listLength)}
+      >
+        <h3 className="m-auto ">
+          {listLength === 5 ? "Show more" : "Show less"}
+        </h3>
+      </div>
     </div>
   )
 }

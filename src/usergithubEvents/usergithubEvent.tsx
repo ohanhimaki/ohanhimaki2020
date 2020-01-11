@@ -23,8 +23,6 @@ class UserEvent extends Component {
       isHidden: !this.state.isHidden,
     })
     if (something.pull_request) {
-      console.log(something)
-
       window.open(something.pull_request.html_url)
       return
     }
@@ -114,8 +112,6 @@ class UserEvent extends Component {
   }
   getPullRequestAction(event: any) {
     if (event.payload.pull_request) {
-      console.log(event)
-
       const types = {
         default: "",
         closed: "text-red-800",

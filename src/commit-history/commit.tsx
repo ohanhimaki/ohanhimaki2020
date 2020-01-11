@@ -9,7 +9,6 @@ interface Props {
 const SingleCommit = ({ commit }: Props) => {
   const date = new Date(commit.commit.author.date)
   const datediff = timeAgo(date)
-  console.log(commit)
 
   return (
     <div className="flex bg-gray-900 border-gray-800 border-t-2 hover:bg-black">
