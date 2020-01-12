@@ -34,6 +34,11 @@ export interface Frontmatter {
 }
 const PostPage = ({ data }: Data) => {
   const { frontmatter, html } = data.markdownRemark
+  const date = new Date(frontmatter.date)
+  const formattedDate =
+    date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear()
+
+  console.log(formattedDate)
 
   function repo() {
     if (frontmatter.repo != null) {
@@ -57,7 +62,7 @@ const PostPage = ({ data }: Data) => {
     <Layout>
       <SEO title={frontmatter.title} />
       <div className="max-w-4xl m-auto bg-gray-800 p-5 rounded-lg">
-        <h4>{frontmatter.date}</h4>
+        <h4>{formattedDate}</h4>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
       {repo()}
