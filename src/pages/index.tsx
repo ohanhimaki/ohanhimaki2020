@@ -10,7 +10,7 @@ import MtsBanner from "../shared/mts-banner"
 import Commithistory from "../commit-history/commit-history"
 import UserEvents from "../usergithubEvents/usergithubEvents"
 import Tabs from "../shared/tabs"
-
+import LastFM from "../lastfm/lastfm"
 interface Props {
   data: {
     allMarkdownRemark: any
@@ -34,6 +34,7 @@ const IndexPage = () => (
       </p>
       <p>LinkedIN ja GitHub linkit alalaidassa.</p>
     </div>
+    <LastFM></LastFM>
     <MtsBanner></MtsBanner>
     <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg my-4 child-rounded-bot ">
       <Tabs>
