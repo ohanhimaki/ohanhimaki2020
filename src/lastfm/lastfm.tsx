@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Track } from "../shared/models/lastfmtracklist"
 import goldmedal from "./gold-medal.png"
 import noteicon from "./musical-note.png"
+import fetch from "node-fetch"
 
 class LastFm extends Component {
   constructor(props) {
@@ -21,7 +22,6 @@ class LastFm extends Component {
     )
       .then(response => response.json())
       .then(data => this.setState({ data }))
-
     fetch(
       "http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=kobbis&api_key=" +
         process.env.REACT_APP_LASTFM_API_KEY +
@@ -65,11 +65,6 @@ class LastFm extends Component {
 
     if (data === null || data2 === null) {
       return <></>
-    }
-    let NPbackground = ""
-
-    if (data.recenttracks?.track[0]["@attr"]?.nowplaying) {
-      NPbackground = "backgroundImage : url("
     }
 
     return (
