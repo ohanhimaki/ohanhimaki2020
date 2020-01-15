@@ -38,8 +38,6 @@ const PostPage = ({ data }: Data) => {
   const formattedDate =
     date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear()
 
-  console.log(formattedDate)
-
   function repo() {
     if (frontmatter.repo != null) {
       const link = "https://github.com/" + frontmatter.repo

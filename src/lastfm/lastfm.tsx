@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Track } from "../shared/models/lastfmtracklist"
+import goldmedal from "./gold-medal.png"
+import noteicon from "./musical-note.png"
 
 class LastFm extends Component {
   constructor(props) {
@@ -30,26 +32,29 @@ class LastFm extends Component {
   }
 
   getNowPlaying(newestTrack: Track) {
-    console.log(newestTrack)
-
     if (newestTrack["@attr"]?.nowplaying) {
       return (
-        <h4>
-          <img src={newestTrack.image[0]["#text"]}></img>
-          NP: {newestTrack.artist["#text"]} - {newestTrack.name}
-        </h4>
+        <div className="inline-flex -mb-2">
+          <img src={newestTrack.image[0]["#text"]} className="mr-1  h-10"></img>
+          <img src={noteicon} className="h-10"></img>
+          <h4 className="mt-1">
+            {newestTrack.artist["#text"]} - {newestTrack.name}
+          </h4>
+        </div>
       )
     }
   }
 
   getTopSongOfWeek(topTrack: Track) {
-    console.log(topTrack)
-
     return (
-      <h4>
-        <img src={topTrack.image[0]["#text"]}></img> {topTrack.artist["#text"]}{" "}
-        - {topTrack.name}
-      </h4>
+      <div className="inline-flex mt-2">
+        <img src={topTrack.image[0]["#text"]} className="mr-1 h-10 -mt-2"></img>
+        <img src={goldmedal} className="h-10 -mt-2"></img>
+        <h4>
+          {" "}
+          {topTrack.artist["#text"]} - {topTrack.name}
+        </h4>
+      </div>
     )
   }
 
@@ -68,7 +73,7 @@ class LastFm extends Component {
     }
 
     return (
-      <div className="bg-gray-800 max-w-xl m-auto px-8 py-2 rounded-lg my-4">
+      <div className="bg-gray-800 max-w-xl m-auto rounded-lg mb-0 p-2">
         {this.getNowPlaying(data.recenttracks?.track[0])}
         {this.getTopSongOfWeek(data2.weeklytrackchart?.track[0])}
       </div>
