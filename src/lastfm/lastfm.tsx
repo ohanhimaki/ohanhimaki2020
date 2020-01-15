@@ -16,14 +16,14 @@ class LastFm extends Component {
 
   componentWillMount() {
     fetch(
-      "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=kobbis&api_key=" +
+      "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=kobbis&api_key=" +
         "7a76d767885fc752b57a627ecc0a6f6f" +
         "&format=json"
     )
       .then(response => response.json())
       .then(data => this.setState({ data }))
     fetch(
-      "http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=kobbis&api_key=" +
+      "https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=kobbis&api_key=" +
         "7a76d767885fc752b57a627ecc0a6f6f" +
         "&format=json"
     )
