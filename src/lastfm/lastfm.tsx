@@ -14,16 +14,25 @@ class LastFm extends Component {
       data: null,
       data2: null,
     }
+    this.livenowplaying = this.livenowplaying.bind(this)
+  }
+
+  livenowplaying() {
+    setTimeout(() => {
+      fetch(
+        "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&limit=1&user=kobbis&api_key=" +
+          "7a76d767885fc752b57a627ecc0a6f6f" +
+          "&format=json"
+      )
+        .then(response => response.json())
+        .then(data => this.setState({ data }))
+
+      this.livenowplaying()
+    }, 2000)
   }
 
   componentWillMount() {
-    fetch(
-      "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=kobbis&api_key=" +
-        "7a76d767885fc752b57a627ecc0a6f6f" +
-        "&format=json"
-    )
-      .then(response => response.json())
-      .then(data => this.setState({ data }))
+    this.livenowplaying()
     fetch(
       "https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=kobbis&api_key=" +
         "7a76d767885fc752b57a627ecc0a6f6f" +
@@ -37,7 +46,7 @@ class LastFm extends Component {
     if (newestTrack["@attr"]?.nowplaying) {
       return (
         <div className="inline-flex -mb-2">
-          <img src={newestTrack.image[0]["#text"]} className="mr-1  h-10"></img>
+          <img src={newestTrack.image[2]["#text"]} className="mr-1  h-10"></img>
           <img src={noteicon} className="h-10 nowplaying"></img>
           <h4 className="mt-1">
             {newestTrack.artist["#text"]} - {newestTrack.name}
@@ -50,7 +59,7 @@ class LastFm extends Component {
   getTopSongOfWeek(topTrack: Track) {
     return (
       <div className="inline-flex mt-2">
-        <img src={topTrack.image[0]["#text"]} className="mr-1 h-10 -mt-2"></img>
+        <img src={topTrack.image[2]["#text"]} className="mr-1 h-10 -mt-2"></img>
         <img src={goldmedal} className="h-10 -mt-2"></img>
         <h4>
           {" "}
