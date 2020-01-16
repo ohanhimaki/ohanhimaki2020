@@ -4,6 +4,8 @@ import goldmedal from "./gold-medal.png"
 import noteicon from "./musical-note.png"
 import fetch from "node-fetch"
 
+import "./nowplaying.css"
+
 class LastFm extends Component {
   constructor(props) {
     super(props)
@@ -36,7 +38,7 @@ class LastFm extends Component {
       return (
         <div className="inline-flex -mb-2">
           <img src={newestTrack.image[0]["#text"]} className="mr-1  h-10"></img>
-          <img src={noteicon} className="h-10"></img>
+          <img src={noteicon} className="h-10 nowplaying"></img>
           <h4 className="mt-1">
             {newestTrack.artist["#text"]} - {newestTrack.name}
           </h4>
