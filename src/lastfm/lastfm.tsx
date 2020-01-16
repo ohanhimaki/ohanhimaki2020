@@ -45,7 +45,7 @@ class LastFm extends Component {
   getNowPlaying(newestTrack: Track) {
     if (newestTrack["@attr"]?.nowplaying) {
       return (
-        <div className="inline-flex -mb-2">
+        <div className="inline-flex -mb-2 w-full">
           <img src={newestTrack.image[2]["#text"]} className="mr-1  h-10"></img>
           <img src={noteicon} className="h-10 nowplaying"></img>
           <h4 className="mt-1">
@@ -58,7 +58,7 @@ class LastFm extends Component {
 
   getTopSongOfWeek(topTrack: Track) {
     return (
-      <div className="inline-flex mt-2">
+      <div className="inline-flex mt-2 w-full">
         <img src={topTrack.image[2]["#text"]} className="mr-1 h-10 -mt-2"></img>
         <img src={goldmedal} className="h-10 -mt-2"></img>
         <h4>
