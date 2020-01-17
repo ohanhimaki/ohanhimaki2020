@@ -43,16 +43,21 @@ class LastFm extends Component {
   }
 
   getNowPlaying(newestTrack: Track) {
-    if (newestTrack["@attr"]?.nowplaying) {
-      return (
-        <div className="inline-flex -mb-2 w-full">
-          <img src={newestTrack.image[2]["#text"]} className="mr-1  h-10"></img>
-          <img src={noteicon} className="h-10 nowplaying"></img>
-          <h4 className="mt-1">
-            {newestTrack.artist["#text"]} - {newestTrack.name}
-          </h4>
-        </div>
-      )
+    if (newestTrack) {
+      if (newestTrack["@attr"]?.nowplaying) {
+        return (
+          <div className="inline-flex -mb-2 w-full">
+            <img
+              src={newestTrack.image[2]["#text"]}
+              className="mr-1  h-10"
+            ></img>
+            <img src={noteicon} className="h-10 nowplaying"></img>
+            <h4 className="mt-1">
+              {newestTrack.artist["#text"]} - {newestTrack.name}
+            </h4>
+          </div>
+        )
+      }
     }
   }
 
