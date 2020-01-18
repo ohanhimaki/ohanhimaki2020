@@ -39,6 +39,7 @@ const Layout = ({ location, title, children }: Props) => {
         <Header siteTitle={data.site.siteMetadata.title} />
         <div className="content">
           <main>{children}</main>
+          <div className="watermark">Kobbis</div>
         </div>
         <Footer></Footer>
       </div>

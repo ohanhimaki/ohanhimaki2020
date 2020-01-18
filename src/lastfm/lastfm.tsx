@@ -34,7 +34,7 @@ class LastFm extends Component {
   componentWillMount() {
     this.livenowplaying()
     fetch(
-      "https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=kobbis&api_key=" +
+      "https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&limit=1&user=kobbis&api_key=" +
         "7a76d767885fc752b57a627ecc0a6f6f" +
         "&format=json"
     )
