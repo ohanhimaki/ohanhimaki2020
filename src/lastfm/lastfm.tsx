@@ -51,7 +51,11 @@ class LastFm extends Component {
               src={newestTrack.image[2]["#text"]}
               className="mr-1  h-10"
             ></img>
-            <img src={noteicon} className="h-10 nowplaying"></img>
+            <img
+              src={noteicon}
+              className="h-10 nowplaying"
+              title="Now playing!"
+            ></img>
             <h4 className="mt-1">
               {newestTrack.artist["#text"]} - {newestTrack.name}
             </h4>
@@ -64,8 +68,13 @@ class LastFm extends Component {
   getTopSongOfWeek(topTrack: Track) {
     return (
       <div className="inline-flex mt-2 w-full">
+        {/* TOOLTIP */}
         <img src={topTrack.image[2]["#text"]} className="mr-1 h-10 -mt-2"></img>
-        <img src={goldmedal} className="h-10 -mt-2"></img>
+        <img
+          src={goldmedal}
+          className="h-10 -mt-2"
+          title="Top track last 7 days"
+        ></img>
         <h4>
           {" "}
           {topTrack.artist["#text"]} - {topTrack.name}
