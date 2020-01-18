@@ -14,8 +14,8 @@ const MtsBanner = () => {
     fetch("https://mita-tanaan-syotaisiin.herokuapp.com/api/lunchofday")
       .then(result => result.json())
       .then(data => {
-        setRavintola(data[0].nimi)
-        setLista(data[0].string_agg)
+        setRavintola(data[0]?.nimi ? data[0]?.nimi : "")
+        setLista(data[0]?.string_agg ? data[0]?.string_agg : "")
       })
   }, [])
 
