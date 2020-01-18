@@ -4,7 +4,7 @@ import goldmedal from "./gold-medal.png"
 import noteicon from "./musical-note.png"
 import fetch from "node-fetch"
 
-import "./nowplaying.css"
+import "./lastfm.css"
 
 class LastFm extends Component {
   constructor(props) {
@@ -72,7 +72,7 @@ class LastFm extends Component {
         <img src={topTrack.image[2]["#text"]} className="mr-1 h-10 -mt-2"></img>
         <img
           src={goldmedal}
-          className="h-10 -mt-2"
+          className="h-10 -mt-2 toptrack"
           title="Top track last 7 days"
         ></img>
         <h4>
