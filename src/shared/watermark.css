@@ -1,0 +1,27 @@
+.watermark {
+  display: table;
+  width: 93vw;
+  height: 50vw;
+  line-height: 90%;
+  opacity: 0.1;
+  color: BLACK;
+  font-size: 7vw;
+  position: fixed;
+  top: 15%;
+  left: 10%;
+  z-index: -1;
+  transform-origin: top;
+  transform: rotate(10deg);
+}
+
+.watermark-cell {
+  vertical-align: middle;
+}
+
+.author {
+  font-style: italic;
+}
+
+.poweredby {
+  font-size: 2vw;
+}

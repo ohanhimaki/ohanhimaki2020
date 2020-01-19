@@ -127,15 +127,3 @@ footer {
 .mts-show {
   max-height: 1000px;
 }
-
-.watermark {
-  opacity: 0.1;
-  color: BLACK;
-  font-size: 30vw;
-  position: fixed;
-  top: 0;
-  left: 10%;
-  z-index: -1;
-  transform-origin: top;
-  transform: rotate(10deg);
-}
