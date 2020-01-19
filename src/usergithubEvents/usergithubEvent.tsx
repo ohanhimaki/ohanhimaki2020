@@ -56,6 +56,11 @@ class UserEvent extends Component<Props, IState> {
     }
   }
 
+  getKey(object: any, string?: string) {
+    const key: keyof typeof object = string ? string : "default"
+    return object[key]
+  }
+
   getBranch(ref?: string) {
     const types = {
       default: "",
@@ -65,10 +70,11 @@ class UserEvent extends Component<Props, IState> {
     if (ref != null) {
       const indexOfLastSlash = ref.lastIndexOf("/")
       const branchName = ref.substring(indexOfLastSlash + 1, ref.length)
+
       return (
         <span>
           {" "}
-          - <span className={types[branchName]}>{branchName}</span>
+          - <span className={this.getKey(types, branchName)}>{branchName}</span>
         </span>
       )
     }
@@ -88,7 +94,7 @@ class UserEvent extends Component<Props, IState> {
           closed: "text-red-800",
           opened: "text-green-800",
         }
-        className = types[event.payload.action] || types["default"]
+        className = this.getKey(types, event.payload.action)
         title = event.payload.action + ": " + title
       }
       return (
@@ -123,7 +129,7 @@ class UserEvent extends Component<Props, IState> {
       PullRequestEvent: "Pull request",
     }
 
-    return types[eventType] || types["default"]
+    return this.getKey(types, eventType)
   }
   getPullRequestAction(event: GitHubEvent) {
     if (event.payload.pull_request) {
@@ -135,7 +141,7 @@ class UserEvent extends Component<Props, IState> {
       let action = event.payload.action ? event.payload.action : "default"
 
       return (
-        <span className={types[action] || types["default"]}>
+        <span className={this.getKey(types, action)}>
           {} - {event.payload.action}
           {event.payload.pull_request.merged ? ", merged" : ""}
         </span>
