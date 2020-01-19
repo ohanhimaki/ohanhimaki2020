@@ -6,10 +6,6 @@ import SEO from "../shared/seo"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import PostPreview, { Post } from "../my-posts/post-preview"
 
-interface Props {
-  data?: any
-}
-
 const PostsPage = () => {
   const data = useStaticQuery(graphql`
     {

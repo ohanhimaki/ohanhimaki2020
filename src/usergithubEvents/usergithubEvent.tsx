@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, Key } from "react"
 import PropTypes from "prop-types"
 import {
   GitHubEvent,
@@ -58,7 +58,7 @@ class UserEvent extends Component<Props, IState> {
 
   getKey(object: any, string?: string) {
     const key: keyof typeof object = string ? string : "default"
-    return object[key]
+    return object[key].toString()
   }
 
   getBranch(ref?: string) {

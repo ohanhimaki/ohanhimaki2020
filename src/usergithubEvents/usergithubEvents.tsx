@@ -30,9 +30,11 @@ const UserEvents = () => {
 
   return (
     <div className="child-rounded-bot section">
-      {allEvents.slice(0, listLength).map((value: GitHubEvent, index: any) => {
-        return <UserEvent event={value} key={index}></UserEvent>
-      })}
+      {allEvents
+        .slice(0, listLength)
+        .map((value: GitHubEvent, index: number) => {
+          return <UserEvent event={value} key={index}></UserEvent>
+        })}
       <div
         className="flex flex-col bg-gray-900 border-gray-800 border-t-2 cursor-pointer "
         onClick={() => showMoreOrLess(listLength)}

@@ -11,16 +11,6 @@ import Commithistory from "../commit-history/commit-history"
 import UserEvents from "../usergithubEvents/usergithubEvents"
 import Tabs from "../shared/tabs"
 import LastFM from "../lastfm/lastfm"
-interface Props {
-  data: {
-    allMarkdownRemark: any
-    site: {
-      siteMetadata: {
-        title: string
-      }
-    }
-  }
-}
 
 const IndexPage = () => (
   <Layout>
@@ -38,11 +28,11 @@ const IndexPage = () => (
     <MtsBanner></MtsBanner>
     <div className="bg-gray-800 max-w-xl  m-auto p-5 rounded-lg my-4 child-rounded-bot ">
       <Tabs>
-        <div label="My github events">
+        <div data-label="My github events">
           {" "}
           <UserEvents></UserEvents>
         </div>
-        <div label="Commit History of this repo">
+        <div data-label="Commit History of this repo">
           {" "}
           <Commithistory
             className="child-rounded-bot"

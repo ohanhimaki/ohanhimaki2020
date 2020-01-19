@@ -4,12 +4,16 @@ import React, {
   Component,
   ReactChild,
   ReactPropTypes,
+  DetailedHTMLProps,
+  HTMLProps,
+  PropsWithChildren,
+  ReactElement,
 } from "react"
 import PropTypes from "prop-types"
 import Tab from "./tab"
 
 interface Props {
-  children: any
+  children: ReactElement[]
 }
 
 interface IState {
@@ -25,7 +29,7 @@ class Tabs extends Component<Props, IState> {
     super(props)
 
     this.state = {
-      activeTab: this.props.children[0].props.label,
+      activeTab: this.props.children[0].props["data-label"],
     }
   }
   onClickTabItem = (tab: string) => {
@@ -41,8 +45,8 @@ class Tabs extends Component<Props, IState> {
     return (
       <div className="tabs">
         <ol className="tab-list flex justify-around">
-          {children.map((child: any) => {
-            const { label } = child.props
+          {children.map((child: ReactElement) => {
+            const label = child.props["data-label"]
 
             return (
               <Tab
@@ -55,8 +59,10 @@ class Tabs extends Component<Props, IState> {
           })}
         </ol>
         <div className="tab-content">
-          {children?.map((child: any, index: number) => {
-            if (child.props.label !== activeTab)
+          {children?.map((child: ReactElement, index: number) => {
+            const label = child.props["data-label"]
+
+            if (label !== activeTab)
               return (
                 <div className="piilossa" key={index}>
                   {child.props.children}
