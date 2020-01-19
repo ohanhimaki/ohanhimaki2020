@@ -48,7 +48,7 @@ class LastFm extends Component {
         return (
           <div className="inline-flex -mb-2 w-full">
             <img
-              src={newestTrack.image[2]["#text"]}
+              src={newestTrack?.image[2]["#text"]}
               className="mr-1  h-10"
             ></img>
             <img
@@ -69,7 +69,10 @@ class LastFm extends Component {
     return (
       <div className="inline-flex mt-2 w-full">
         {/* TOOLTIP */}
-        <img src={topTrack.image[2]["#text"]} className="mr-1 h-10 -mt-2"></img>
+        <img
+          src={topTrack?.image[2]["#text"]}
+          className="mr-1 h-10 -mt-2"
+        ></img>
         <img
           src={goldmedal}
           className="h-10 -mt-2 toptrack"

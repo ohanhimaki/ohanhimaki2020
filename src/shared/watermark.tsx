@@ -29,7 +29,7 @@ class Watermark extends Component {
     let author = "Les Brown"
     let poweredby = ""
 
-    if (data != null && data.error === null) {
+    if (data != null && data.error === undefined) {
       quoteText = data.contents.quotes[0].quote
       author = data.contents.quotes[0].author
       poweredby = "Powered by: They Said So"
