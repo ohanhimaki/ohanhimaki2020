@@ -1,7 +1,16 @@
 import React, { Component } from "react"
+import { Commit as CommitEvent } from "../shared/models/githubEvent"
+import { CommitSingle } from "../shared/models/commitsingle"
+import SingleCommit from "../commit-history/commit"
 
-class EventPush extends Component {
-  constructor(props) {
+interface Props {
+  commit: CommitEvent
+}
+interface IState {
+  data: CommitSingle | null
+}
+class EventPush extends Component<Props, IState> {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
@@ -12,7 +21,9 @@ class EventPush extends Component {
   componentWillMount() {
     fetch(this.props.commit.url)
       .then(response => response.json())
-      .then(data => this.setState({ data }))
+      .then(data => {
+        this.setState({ data })
+      })
   }
   render() {
     const messageLength = 65

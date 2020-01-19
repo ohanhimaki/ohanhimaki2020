@@ -1,18 +1,32 @@
 import React, { Component } from "react"
-import { Track } from "../shared/models/lastfmtracklist"
+import {
+  Track as TrackNP,
+  LastFMNowPlaying,
+} from "../shared/models/LastFMNowPlaying"
 import goldmedal from "./gold-medal.png"
 import noteicon from "./musical-note.png"
 import fetch from "node-fetch"
 
 import "./lastfm.css"
+import {
+  Track as TrackLW,
+  LastFMWeekChart,
+} from "../shared/models/LastFMWeekChart"
 
-class LastFm extends Component {
-  constructor(props) {
+interface Props {}
+
+interface IState {
+  data: LastFMNowPlaying
+  data2: LastFMWeekChart
+}
+
+class LastFm extends Component<{}, IState> {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
-      data: null,
-      data2: null,
+      data: { recenttracks: undefined },
+      data2: { weeklytrackchart: undefined },
     }
     this.livenowplaying = this.livenowplaying.bind(this)
   }
@@ -42,7 +56,7 @@ class LastFm extends Component {
       .then(data2 => this.setState({ data2 }))
   }
 
-  getNowPlaying(newestTrack: Track) {
+  getNowPlaying(newestTrack: TrackNP) {
     if (newestTrack) {
       if (newestTrack["@attr"]?.nowplaying) {
         return (
@@ -65,7 +79,7 @@ class LastFm extends Component {
     }
   }
 
-  getTopSongOfWeek(topTrack: Track) {
+  getTopSongOfWeek(topTrack: TrackLW) {
     return (
       <div className="inline-flex mt-2 w-full">
         {/* TOOLTIP */}
@@ -91,7 +105,10 @@ class LastFm extends Component {
       state: { data, data2 },
     } = this
 
-    if (data === null || data2 === null) {
+    if (
+      data.recenttracks === undefined ||
+      data2.weeklytrackchart === undefined
+    ) {
       return <></>
     }
 

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { ReactChild } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -20,7 +20,7 @@ import Watermark from "./watermark"
 interface Props {
   location?: Location
   title?: string
-  children?: any
+  children?: ReactChild[]
 }
 
 const Layout = ({ location, title, children }: Props) => {

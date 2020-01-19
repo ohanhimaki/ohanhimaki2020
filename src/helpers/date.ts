@@ -22,3 +22,8 @@ function timeAgo(params: Date) {
 }
 
 export default timeAgo
+
+export interface DateDiff {
+    timeamount: string,
+    timeunit: string,
+}

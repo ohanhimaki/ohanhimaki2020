@@ -37,7 +37,7 @@ const Commithistory = ({ repo, className }: Props) => {
 
   return (
     <div className={className}>
-      {allCommits.slice(0, listLength).map((value: Commit, index: any) => {
+      {allCommits.slice(0, listLength).map((value: Commit, index: number) => {
         return <SingleCommit commit={value} key={index}></SingleCommit>
       })}
       <div

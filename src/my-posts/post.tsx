@@ -53,6 +53,8 @@ const PostPage = ({ data }: Data) => {
           ></Commithistory>
         </div>
       )
+    } else {
+      return <></>
     }
   }
 

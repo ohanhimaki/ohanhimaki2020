@@ -39,7 +39,7 @@ const PostsPage = () => {
     <Layout>
       <SEO title="Posts" />
       <div className="flex flex-wrap max-w-4xl m-auto">
-        {postPreviews.map((value: Post, index: any) => {
+        {postPreviews.map((value: Post, index: number) => {
           return <PostPreview post={value} key={index}></PostPreview>
         })}
       </div>

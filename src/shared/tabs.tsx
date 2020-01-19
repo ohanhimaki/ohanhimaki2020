@@ -1,24 +1,34 @@
-import React, { useState, useEffect, Component } from "react"
+import React, {
+  useState,
+  useEffect,
+  Component,
+  ReactChild,
+  ReactPropTypes,
+} from "react"
 import PropTypes from "prop-types"
 import Tab from "./tab"
 
 interface Props {
-  children?: any
+  children: any
 }
 
-class Tabs extends Component {
+interface IState {
+  activeTab: string
+}
+
+class Tabs extends Component<Props, IState> {
   static propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
   }
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
       activeTab: this.props.children[0].props.label,
     }
   }
-  onClickTabItem = tab => {
+  onClickTabItem = (tab: string) => {
     this.setState({ activeTab: tab })
   }
 
@@ -31,7 +41,7 @@ class Tabs extends Component {
     return (
       <div className="tabs">
         <ol className="tab-list flex justify-around">
-          {children.map(child => {
+          {children.map((child: any) => {
             const { label } = child.props
 
             return (
@@ -45,7 +55,7 @@ class Tabs extends Component {
           })}
         </ol>
         <div className="tab-content">
-          {children.map((child, index) => {
+          {children?.map((child: any, index: number) => {
             if (child.props.label !== activeTab)
               return (
                 <div className="piilossa" key={index}>

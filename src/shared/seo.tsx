@@ -12,8 +12,8 @@ import { useStaticQuery, graphql } from "gatsby"
 
 interface Props {
   description?: string
-  lang?: string
-  meta?: []
+  lang: string
+  meta: []
   title: string
 }
 

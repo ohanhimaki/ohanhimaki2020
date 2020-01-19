@@ -1,11 +1,26 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { GitHubEvent } from "../shared/models/githubEvent"
-import timeAgo from "../helpers/date"
+import {
+  GitHubEvent,
+  Commit,
+  Payload,
+  Issue,
+  PullRequest,
+} from "../shared/models/githubEvent"
+import timeAgo, { DateDiff } from "../helpers/date"
 import EventPush from "./eventPush"
 
-class UserEvent extends Component {
-  constructor(props) {
+interface IState {
+  isHidden: boolean
+  datediff: DateDiff
+}
+
+interface Props {
+  event: GitHubEvent
+}
+
+class UserEvent extends Component<Props, IState> {
+  constructor(props: Props) {
     super(props)
 
     const date = new Date(props.event.created_at)
@@ -18,11 +33,11 @@ class UserEvent extends Component {
     this.getSubtitles = this.getSubtitles.bind(this)
   }
 
-  divClickFunction(something?: any) {
+  divClickFunction(something?: Payload) {
     this.setState({
       isHidden: !this.state.isHidden,
     })
-    if (something.pull_request) {
+    if (something?.pull_request) {
       window.open(something.pull_request.html_url)
       return
     }
@@ -30,18 +45,18 @@ class UserEvent extends Component {
     //   window.open(something.comment.html_url)
     //   return
     // }
-    if (something.issue && !something.comment) {
+    if (something?.issue && !something.comment) {
       window.open(something.issue.html_url)
     }
   }
 
-  renderCommit(commit, index) {
+  renderCommit(commit: Commit, index: number) {
     if (commit != null) {
       return <EventPush commit={commit} key={index}></EventPush>
     }
   }
 
-  getBranch(ref: string) {
+  getBranch(ref?: string) {
     const types = {
       default: "",
       master: "text-red-800",
@@ -58,12 +73,12 @@ class UserEvent extends Component {
       )
     }
   }
-  getCommitCount(commits: []) {
+  getCommitCount(commits?: Commit[]) {
     if (commits != null) {
       return " - " + commits.length + " Commits"
     }
   }
-  getIssueName(event: any) {
+  getIssueName(event: GitHubEvent) {
     let className = ""
     if (event.payload.issue != null) {
       let title = event.payload.issue.title
@@ -84,7 +99,7 @@ class UserEvent extends Component {
       )
     }
   }
-  getMoreInfo(payload: any) {
+  getMoreInfo(payload: Payload) {
     if (payload.comment) {
       return (
         <div className="flex bg-gray-900 border-gray-800 border-t-2 p-1 mx-3 hover:bg-black">
@@ -110,15 +125,17 @@ class UserEvent extends Component {
 
     return types[eventType] || types["default"]
   }
-  getPullRequestAction(event: any) {
+  getPullRequestAction(event: GitHubEvent) {
     if (event.payload.pull_request) {
       const types = {
         default: "",
         closed: "text-red-800",
         opened: "text-green-800",
       }
+      let action = event.payload.action ? event.payload.action : "default"
+
       return (
-        <span className={types[event.payload.action] || types["default"]}>
+        <span className={types[action] || types["default"]}>
           {} - {event.payload.action}
           {event.payload.pull_request.merged ? ", merged" : ""}
         </span>
@@ -126,7 +143,7 @@ class UserEvent extends Component {
     }
   }
 
-  getSubtitles(event: any) {
+  getSubtitles(event: GitHubEvent) {
     const test = (
       <div>
         <h4>
@@ -171,7 +188,7 @@ class UserEvent extends Component {
           </h4>
         </div>
         <div className={commitscontainer}>
-          {event.payload.commits?.map((value, index: number) => {
+          {event.payload.commits?.map((value: Commit, index: number) => {
             return this.renderCommit(value, index)
           })}
           {getMoreInfo(event.payload)}

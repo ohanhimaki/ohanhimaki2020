@@ -3,13 +3,20 @@ import LastFm from "../lastfm/lastfm"
 import fetch from "node-fetch"
 
 import "./watermark.css"
+import { QuoteOfDay } from "./models/qod"
 
-class Watermark extends Component {
-  constructor(props) {
+interface IState {
+  data: QuoteOfDay
+}
+
+interface Props {}
+
+class Watermark extends Component<{}, IState> {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
-      data: null,
+      data: { success: undefined, contents: undefined },
     }
   }
 
@@ -29,7 +36,11 @@ class Watermark extends Component {
     let author = "Les Brown"
     let poweredby = ""
 
-    if (data != null && data.error === undefined) {
+    if (
+      data.success != undefined &&
+      data.contents != undefined &&
+      data.error === undefined
+    ) {
       quoteText = data.contents.quotes[0].quote
       author = data.contents.quotes[0].author
       poweredby = "Powered by: They Said So"
