@@ -1,6 +1,6 @@
 .watermark {
   display: table;
-  width: 93vw;
+  width: 83vw;
   height: 50vw;
   line-height: 90%;
   opacity: 0.1;
@@ -8,7 +8,7 @@
   font-size: 7vw;
   position: fixed;
   top: 15%;
-  left: 10%;
+  left: 15%;
   z-index: -1;
   transform-origin: top;
   transform: rotate(10deg);
