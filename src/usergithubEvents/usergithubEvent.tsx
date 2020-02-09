@@ -58,7 +58,12 @@ class UserEvent extends Component<Props, IState> {
 
   getKey(object: any, string?: string) {
     const key: keyof typeof object = string ? string : "default"
-    return object[key].toString()
+
+    if (object[key]) {
+      return object[key].toString()
+    } else {
+      return null
+    }
   }
 
   getBranch(ref?: string) {
@@ -127,6 +132,7 @@ class UserEvent extends Component<Props, IState> {
       IssueCommentEvent: "Issue commented",
       IssuesEvent: "Issue",
       PullRequestEvent: "Pull request",
+      WatchEvent: "Starred",
     }
 
     return this.getKey(types, eventType)
@@ -180,6 +186,7 @@ class UserEvent extends Component<Props, IState> {
     } else {
       commitscontainer += ""
     }
+    console.log(event)
 
     return (
       <div className="flex flex-col bg-gray-900 border-gray-800 border-t-2 ">
