@@ -15,7 +15,6 @@ import "./layout.css"
 import "./hidden.css"
 import Header from "./header"
 import Footer from "./footer"
-import Watermark from "./watermark"
 
 interface Props {
   location?: Location
@@ -40,7 +39,6 @@ const Layout = ({ location, title, children }: Props) => {
         <Header siteTitle={data.site.siteMetadata.title} />
         <div className="content">
           <main>{children}</main>
-          <Watermark></Watermark>
         </div>
         <Footer></Footer>
       </div>
