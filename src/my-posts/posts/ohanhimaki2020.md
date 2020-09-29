@@ -4,10 +4,10 @@ date: "2020-01-24"
 title: "Omat sivut uudella stackillä"
 tags: ["GatsbyJS", "Tailwind", "Netlify"]
 excert: "Omat sivut toteutettu uudella stackillä ja hostattu netlifyyn. Projektista on muodostunut hiekkalaatikko erilaisten apien testaukselle."
-repo: "ohanhimaki/mita-tanaan-syotaisiin-web"
+repo: "ohanhimaki/ohanhimaki2020"
 ---
 
-## MTS Lounassovellus
+## OHanhimaki2020
 
 Omat sivut toteutettu uudelleen uudella stackillä. Mukana mm. GatsbyJS ja Tailwindcss.
 
