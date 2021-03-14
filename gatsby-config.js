@@ -54,6 +54,12 @@ module.exports = {
         name: `posts`,
       },
     },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `216277814`,
+      },
+    },
     `gatsby-transformer-remark`,
   ],
 }
