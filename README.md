@@ -13,3 +13,6 @@ npm run start:dev
 ```
 
 Command runs gatsby develop
+
+
+open browser to http://localhost:8000/
