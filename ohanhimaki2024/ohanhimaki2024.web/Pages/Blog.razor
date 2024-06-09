@@ -2,20 +2,16 @@
 @inject BlogService BlogService
 
 <h3>Blog Posts</h3>
-<ul>
-    @foreach (var post in posts)
-    {
-        <li>
-            <a href="/blog/@post">@post</a>
-        </li>
-    }
-</ul>
+@foreach (var post in posts)
+{
+   <BlogPostPreview BlogPost="@post" />
+}
 
 @code {
-    private List<string> posts = new List<string>();
+    private List<BlogPost> posts = new List<BlogPost>();
 
     protected override async Task OnInitializedAsync()
     {
-        posts = await BlogService.GetBlogPostsAsync();
+        posts = await BlogService.GetBlogPostContentsAsync();
     }
 }

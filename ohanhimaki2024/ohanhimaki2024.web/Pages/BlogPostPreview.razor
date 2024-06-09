@@ -1,0 +1,12 @@
+﻿
+<h3>@BlogPost?.Title</h3>
+<p><strong>Date:</strong> @BlogPost?.Date.ToString("yyyy-MM-dd")</p>
+<p><strong>Tags:</strong> @string.Join(", ", BlogPost?.Tags ?? new List<string>())</p>
+<p><strong>Excerpt:</strong> @BlogPost?.Excerpt</p>
+
+<a href="/blog/@BlogPost.Path">Read more...</a>
+
+@code {
+    [Parameter]
+    public BlogPost BlogPost { get; set; }
+}

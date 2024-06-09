@@ -1,0 +1,21 @@
+﻿@page "/blog/{PostName}"
+@inject BlogService BlogService
+
+<h3>@blogPost?.Title</h3>
+<p><strong>Date:</strong> @blogPost?.Date.ToString("yyyy-MM-dd")</p>
+<p><strong>Tags:</strong> @string.Join(", ", blogPost?.Tags ?? new List<string>())</p>
+<p><strong>Excerpt:</strong> @blogPost?.Excerpt</p>
+<p><strong>Repo:</strong> <a href="https://github.com/@blogPost?.Repo">@blogPost?.Repo</a></p>
+<div>@((MarkupString)blogPost?.Content)</div>
+
+@code {
+    [Parameter]
+    public string PostName { get; set; }
+
+    private BlogPost blogPost;
+
+    protected override async Task OnInitializedAsync()
+    {
+        blogPost = await BlogService.GetBlogPostContentAsync(PostName);
+    }
+}
