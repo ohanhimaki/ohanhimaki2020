@@ -1,0 +1,21 @@
+﻿@page "/blog"
+@inject BlogService BlogService
+
+<h3>Blog Posts</h3>
+<ul>
+    @foreach (var post in posts)
+    {
+        <li>
+            <a href="/blog/@post">@post</a>
+        </li>
+    }
+</ul>
+
+@code {
+    private List<string> posts = new List<string>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        posts = await BlogService.GetBlogPostsAsync();
+    }
+}

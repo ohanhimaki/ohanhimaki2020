@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using ohanhimaki2024.web;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
+builder.Services.AddTransient<BlogService>();
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 

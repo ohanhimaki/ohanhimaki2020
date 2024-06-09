@@ -10,6 +10,33 @@
         <PackageReference Include="Markdig" Version="0.37.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    </ItemGroup>
+    
+    <Target Name="CreateMarkdownIndex" BeforeTargets="Build">
+        <ItemGroup>
+            <MarkdownFiles Include="..\..\posts\*.md" />
+        </ItemGroup>
+        <WriteLinesToFile
+                File="$(ProjectDir)wwwroot\posts\index.txt"
+                Lines="@(MarkdownFiles->'%(Filename)')"
+                Overwrite="true" />
+    </Target>
+    <Target Name="CopyMarkdownFiles" AfterTargets="CreateMarkdownIndex">
+        <ItemGroup>
+            <MarkdownFiles Include="..\..\posts\*.md" />
+        </ItemGroup>
+        <Copy SourceFiles="@(MarkdownFiles)" DestinationFolder="$(ProjectDir)wwwroot\posts\" />
+        <Copy SourceFiles="$(ProjectDir)wwwroot\posts\index.txt" DestinationFolder="$(ProjectDir)wwwroot\posts\" />
+    </Target>
+
+    <ItemGroup>
+        <Content Update="wwwroot\posts\*.md">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\posts\index.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>

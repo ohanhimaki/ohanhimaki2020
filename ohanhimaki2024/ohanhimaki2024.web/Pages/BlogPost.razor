@@ -1,0 +1,26 @@
+﻿@page "/blog/{PostName}"
+@inject BlogService BlogService
+
+<h3>@postTitle</h3>
+<div>@((MarkupString)postContent)</div>
+
+@code {
+    [Parameter]
+    public string PostName { get; set; }
+
+    private string postTitle;
+    private string postContent;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var markdown = await BlogService.GetBlogPostContentAsync(PostName);
+        if (!string.IsNullOrEmpty(markdown))
+        {
+            postContent = Markdig.Markdown.ToHtml(markdown);
+
+            // Assume the title is on the first line of the markdown file
+            var lines = markdown.Split('\n');
+            postTitle = lines.FirstOrDefault(line => line.StartsWith("title: "))?.Replace("title: ", "").Trim();
+        }
+    }
+}
