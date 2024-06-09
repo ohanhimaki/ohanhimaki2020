@@ -1,11 +1,41 @@
 ﻿@page "/blog"
 @inject BlogService BlogService
+<PageTitle>Olli Hanhimäki - Blogi</PageTitle>
+<style>
+    .equal-height-grid {
+       display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .equal-height-item {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+    }
+    
+    .equal-height-paper {
+        flex-grow: 1;
+    }
+</style>
+<MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
 
-<h3>Blog Posts</h3>
-@foreach (var post in posts)
-{
-   <BlogPostPreview BlogPost="@post" />
-}
+    @foreach (var distinctTag in DistinctTags)
+    {
+        var variant = SelectedTags.Contains(distinctTag) ? Variant.Filled : Variant.Outlined;
+        <MudChip Variant="variant" OnClick="@(() => ToggleSelect(distinctTag))" Color="Color.Info">@distinctTag</MudChip>
+    }
+
+    <MudGrid Class="equal-height-grid">
+        @foreach (var post in posts.Where(x => FilterPosts(x)))
+        {
+            <MudItem xs="12" sm="6" md="4" Class="equal-height-item">
+                <MudPaper Elevation="2" Class="pa-4 equal-height-paper" Style="background-color: #2d2d2d;">
+                    <BlogPostPreview BlogPost="@post"/>
+                </MudPaper>
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
 
 @code {
     private List<BlogPost> posts = new List<BlogPost>();
@@ -13,5 +43,34 @@
     protected override async Task OnInitializedAsync()
     {
         posts = await BlogService.GetBlogPostContentsAsync();
+        DistinctTags = posts.SelectMany(p => p.Tags).Distinct().ToList();
     }
+
+    public List<string> DistinctTags = new List<string>();
+    public List<string> SelectedTags = new List<string>();
+
+    private void ToggleSelect(string distinctTag)
+    {
+        if(SelectedTags.Contains(distinctTag))
+        {
+            SelectedTags.Remove(distinctTag);
+        }
+        else
+        {
+            SelectedTags.Add(distinctTag);
+        }
+        StateHasChanged();
+        
+        
+    }
+
+    private bool FilterPosts(BlogPost blogPost)
+    {
+        if(SelectedTags.Count == 0)
+        {
+            return true;
+        }
+        return blogPost.Tags.Any(x => SelectedTags.Contains(x));
+    }
+
 }
