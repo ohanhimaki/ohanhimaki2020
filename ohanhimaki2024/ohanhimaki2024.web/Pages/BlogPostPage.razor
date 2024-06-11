@@ -2,20 +2,59 @@
 @inject BlogService BlogService
 
 <h3>@blogPost?.Title</h3>
-<p><strong>Date:</strong> @blogPost?.Date.ToString("yyyy-MM-dd")</p>
-<p><strong>Tags:</strong> @string.Join(", ", blogPost?.Tags ?? new List<string>())</p>
-<p><strong>Excerpt:</strong> @blogPost?.Excerpt</p>
-<p><strong>Repo:</strong> <a href="https://github.com/@blogPost?.Repo">@blogPost?.Repo</a></p>
+<p>
+    <strong>Date:</strong> @blogPost?.Date.ToString("yyyy-MM-dd")
+</p>
+<p>
+    <strong>Tags:</strong> @string.Join(", ", blogPost?.Tags ?? new List<string>())
+</p>
+<p>
+    <strong>Excerpt:</strong> @blogPost?.Excerpt
+</p>
+<p>
+    <strong>Repo:</strong> <a href="https://github.com/@blogPost?.Repo">@blogPost?.Repo</a>
+</p>
 <div>@((MarkupString)blogPost?.Content)</div>
 
-@code {
-    [Parameter]
-    public string PostName { get; set; }
+@if (blogPost is not null &&  !string.IsNullOrWhiteSpace(blogPost.Repo))
+{
+    @if (Commits == null)
+    {
+        <div>LOADING</div>
+    }
+    else if (Commits.Count == 0)
+    {
+        <div>No commits</div>
+    }
+    else
+    {
+        <GitHubCommits
+            Commits="Commits"/>
+    }
+}
 
-    private BlogPost blogPost;
+@code {
+    [Parameter] public string PostName { get; set; }
+
+    private BlogPost? blogPost;
 
     protected override async Task OnInitializedAsync()
     {
         blogPost = await BlogService.GetBlogPostContentAsync(PostName);
+
+        GetCommits();
     }
+
+    private async Task GetCommits()
+    {
+        if (blogPost is null || string.IsNullOrWhiteSpace(blogPost.Repo))
+        {
+            return;
+        }
+        Commits = await BlogService.GetCommitsAsync(blogPost.Repo);
+        StateHasChanged();
+    }
+
+    public List<GitHubCommit>? Commits { get; set; }
+
 }

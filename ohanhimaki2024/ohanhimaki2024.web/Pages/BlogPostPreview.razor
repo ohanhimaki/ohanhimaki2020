@@ -1,15 +1,17 @@
 ﻿
-<h3>@BlogPost?.Title</h3>
-<p> @BlogPost?.Date.ToString("yyyy-MM-dd")</p>
-@foreach (var blogPostTag in BlogPost?.Tags)
-{
-    <MudChip Color="Color.Info">@blogPostTag</MudChip>
-}
-<p><strong>Excerpt:</strong> @BlogPost?.Excerpt</p>
-
-<a href="/blog/@BlogPost.Path">Read more...</a>
+    <h3>@BlogPost?.Title</h3>
+    <p> @BlogPost?.Date.ToString("yyyy-MM-dd")</p>
+    @foreach (var blogPostTag in BlogPost?.Tags)
+    {
+        <MudChip Color="Color.Info">@blogPostTag</MudChip>
+    }
+    <p>
+        <strong>Excerpt:</strong> @BlogPost?.Excerpt
+    </p>
 
 @code {
     [Parameter]
     public BlogPost BlogPost { get; set; }
+
+
 }

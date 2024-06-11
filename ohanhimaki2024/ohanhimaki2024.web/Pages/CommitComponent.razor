@@ -1,0 +1,80 @@
+﻿@* const SingleCommit = ({ commit }: Props) => { *@
+@*   const date = new Date(commit.commit.author.date) *@
+@*   const datediff = timeAgo(date) *@
+@* *@
+@*   return ( *@
+@*     <div className="flex bg-gray-900 border-gray-800 border-t-2 hover:bg-black"> *@
+@*       <a href={commit.author.html_url} target="_blank" className="w-16 h-16"> *@
+@*         <img src={commit.author.avatar_url} className="w-16 h-16"></img>{" "} *@
+@*       </a> *@
+@*       <a *@
+@*         href={commit.html_url} *@
+@*         target="_blank" *@
+@*         className="flex-1 hover:bg-black" *@
+@*       > *@
+@*         <div className="ml-2"> *@
+@*           <h3 className=""> {commit.commit.message}</h3> *@
+@*           <h4> *@
+@*             {datediff.timeamount} {} {datediff.timeunit} {} ago *@
+@*           </h4> *@
+@*         </div> *@
+@*       </a> *@
+@*     </div> *@
+@*   ) *@
+@* } *@
+
+<div>
+    <a href="@(commit.author.html_url)" target="_blank">
+        <img src="@(commit.author.avatar_url)" className="w-16 h-16"/>
+    </a>
+    <a href="@(commit.html_url)"
+       target="_blank"
+         className="flex-1 hover:bg-black">
+    <div className="ml-2">
+        <h3 className=""> @(commit.commit.message)</h3>
+        <h4>
+            @TimeAgoString(commit.commit.author.date)
+        </h4>
+    </div>
+    </a>
+</div>
+
+
+
+
+
+
+
+@code {
+    [Parameter]
+    public GitHubCommit commit { get; set; }
+    
+
+    public string TimeAgoString(string date)
+    {
+        var dateTime = DateTime.Parse(date);
+        var timeunit = "";
+        decimal timeamount = 0;
+        var dateNow = DateTime.Now;
+        var msdiff = dateNow.Ticks - dateTime.Ticks;
+        var datediff = msdiff / (1000 * 3600 * 24);
+        if (datediff > 1)
+        {
+            timeamount = datediff;
+            timeunit = "days";
+        }
+        else if (datediff * 24 > 1)
+        {
+            timeamount = datediff * 24;
+            timeunit = "hours";
+        }
+        else
+        {
+            timeamount = datediff * 24 * 60;
+            timeunit = "minutes";
+        }
+        var timeamountstr = Math.Round(timeamount).ToString();
+        return timeamountstr + " " + timeunit;
+    }
+    
+}

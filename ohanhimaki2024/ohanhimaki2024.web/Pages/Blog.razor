@@ -29,9 +29,11 @@
         @foreach (var post in posts.Where(x => FilterPosts(x)))
         {
             <MudItem xs="12" sm="6" md="4" Class="equal-height-item">
-                <MudPaper Elevation="2" Class="pa-4 equal-height-paper" Style="background-color: #2d2d2d;">
-                    <BlogPostPreview BlogPost="@post"/>
-                </MudPaper>
+                <MudLink Class="equal-height-paper" Underline="Underline.None" Color="Color.Inherit" Href="@("/blog/" + @post.Filename)">
+                    <MudPaper Elevation="2" Class="pa-4 equal-height-paper " Style="background-color: #2d2d2d;">
+                        <BlogPostPreview BlogPost="@post"/>
+                    </MudPaper>
+                </MudLink>
             </MudItem>
         }
     </MudGrid>
@@ -42,7 +44,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        posts = await BlogService.GetBlogPostContentsAsync();
+        posts = (await BlogService.GetBlogPostContentsAsync()).OrderByDescending(x => x.Date).ToList();
         DistinctTags = posts.SelectMany(p => p.Tags).Distinct().ToList();
     }
 
