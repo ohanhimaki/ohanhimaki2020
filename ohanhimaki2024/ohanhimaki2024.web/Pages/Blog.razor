@@ -26,7 +26,7 @@
     }
 
     <MudGrid Class="equal-height-grid">
-        @foreach (var post in posts.Where(x => FilterPosts(x)))
+        @foreach (var post in Posts.Where(x => FilterPosts(x)))
         {
             <MudItem xs="12" sm="6" md="4" Class="equal-height-item">
                 <MudLink Class="equal-height-paper" Underline="Underline.None" Color="Color.Inherit" Href="@("/blog/" + @post.Filename)">
@@ -40,12 +40,12 @@
 </MudContainer>
 
 @code {
-    private List<BlogPost> posts = new List<BlogPost>();
+    private List<BlogPost> Posts = new List<BlogPost>();
 
     protected override async Task OnInitializedAsync()
     {
-        posts = (await BlogService.GetBlogPostContentsAsync()).OrderByDescending(x => x.Date).ToList();
-        DistinctTags = posts.SelectMany(p => p.Tags).Distinct().ToList();
+        Posts = (await BlogService.GetBlogPostContentsAsync()).OrderByDescending(x => x.Date).ToList();
+        DistinctTags = Posts.SelectMany(p => p.Tags).GroupBy(x => x).OrderByDescending(x => x.Count()).ThenBy(x => x.Key).Select(x => x.Key).ToList();
     }
 
     public List<string> DistinctTags = new List<string>();

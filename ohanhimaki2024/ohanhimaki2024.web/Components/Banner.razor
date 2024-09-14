@@ -1,0 +1,50 @@
+﻿<style>
+    .bannerbigimage {
+        top: 60px;
+        z-index: 40;
+    }
+    /* purgecss ignore */
+    .bannerbigimage > .gatsby-image-wrapper {
+        height: 400px;
+        padding: 0.7rem 0 0.7rem 0;
+    }
+
+    .bannerbigimage {
+        transition-duration: 1s;
+        filter: brightness(40%) blur(7px) grayscale(100%);
+    }
+    .bannerbigimage:hover {
+        transition-duration: 1s !important;
+        filter: brightness(40%) blur(0px) !important;
+    }
+
+    .circleimg {
+        align-content: center;
+        left: 50%;
+        top: 50%;
+    }
+
+    /* purgecss ignore */
+    .circleimg img {
+        scale: 1.2;
+        clip-path: circle(46% at 50% 50%);
+    }
+</style>
+<MudGrid Style="width: 100%" Justify="Justify.Center">
+    <MudItem xs="12" Style="z-index: 999" >
+        <MudGrid Class="circleimg" Justify="Justify.Center">
+            <MudItem md="4" Class="" >
+                <MudImage Style="width: 20vw" Src="images/mina.jpg"/>
+                <h1 class="m-auto font-bold">Olli Hanhimäki</h1>
+                <h2 class="m-auto font-bold text-gray-600">IT-Tradenomi</h2>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+    <div class="absolute ">
+        <MudImage Style="width: 100vw" Src="images/bigimage.png"/>
+    </div>
+</MudGrid>
+
+@code {
+
+}

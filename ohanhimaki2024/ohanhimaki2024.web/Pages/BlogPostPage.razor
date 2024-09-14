@@ -3,17 +3,20 @@
 
 <h3>@blogPost?.Title</h3>
 <p>
-    <strong>Date:</strong> @blogPost?.Date.ToString("yyyy-MM-dd")
+    <strong>Paivänmäärä:</strong> @blogPost?.Date.ToString("yyyy-MM-dd")
 </p>
 <p>
-    <strong>Tags:</strong> @string.Join(", ", blogPost?.Tags ?? new List<string>())
+    <strong>Tagit:</strong> @string.Join(", ", blogPost?.Tags ?? new List<string>())
 </p>
 <p>
-    <strong>Excerpt:</strong> @blogPost?.Excerpt
+    <strong>Kuvaus</strong> @blogPost?.Excerpt
 </p>
-<p>
-    <strong>Repo:</strong> <a href="https://github.com/@blogPost?.Repo">@blogPost?.Repo</a>
-</p>
+@if (blogPost?.Repo is not null)
+{
+    <p>
+        <strong>Repository:</strong> <a href="https://github.com/@blogPost?.Repo">@blogPost?.Repo</a>
+    </p>
+}
 <div>@((MarkupString)blogPost?.Content)</div>
 
 @if (blogPost is not null &&  !string.IsNullOrWhiteSpace(blogPost.Repo))
